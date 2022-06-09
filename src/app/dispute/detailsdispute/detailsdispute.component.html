@@ -31,7 +31,7 @@
                                 <label  class="title">{{title.label_NAME_EN}} </label>
                               </span>
                             </div>
-                            <div class="col-6" style="padding: 0 2px;">
+                            <div class="col-6" style="padding: 0 0px;">
                                 <span  *ngFor="let item of DataDetails | keyvalue" >
                                     <label *ngIf="title.object_NAME == item.key" > <span *ngIf="item.value !== ' '"> : </span></label>
                                     <label *ngIf="title.object_NAME == item.key" class="ml-2" > {{item.value}} </label>

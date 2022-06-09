@@ -48,7 +48,7 @@
     
         <ng-template pTemplate="header"  let-columns>
           <tr>
-            <th style="width: 3rem" > <!--*ngIf="DataDetails1.link_STATUS == 'Multi Linked'"-->
+            <th style="width: 3rem" *ngIf="DataDetails1.link_STATUS == 'Multi Linked'"> <!--*ngIf="DataDetails1.link_STATUS == 'Multi Linked'"-->
               <!-- <p-tableHeaderCheckbox></p-tableHeaderCheckbox> -->
             </th>
 
@@ -61,7 +61,7 @@
           </tr>
     
           <tr>
-            <th style="width: 3rem" ></th>
+            <th style="width: 3rem" *ngIf="DataDetails1.link_STATUS == 'Multi Linked'"></th>
             <th *ngFor="let col of columns">
               <p-columnFilter type="text"  field={{col.field}}></p-columnFilter> <!-- type="numeric"-->
            </th>
@@ -72,7 +72,7 @@
         <ng-template pTemplate="body" let-rowData let-columns="columns">
        
           <tr>
-            <td >
+            <td *ngIf="DataDetails1.link_STATUS == 'Multi Linked'">
               <p-tableRadioButton [value]="rowData" (click)="selectRow(rowData)"></p-tableRadioButton>
               <!-- <p-tableCheckbox [value]="rowData" (click)="selectRow(rowData)"></p-tableCheckbox> -->
            </td>
