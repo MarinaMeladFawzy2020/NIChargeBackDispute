@@ -1,0 +1,108 @@
+
+  <div class="modal fade" id="linkeddispute" tabindex="-1" role="dialog" aria-labelledby="linkeddisputeLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
+  
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="linkeddisputeLabel">Linked Transaction</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"  (click)="onReset()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form (ngSubmit)="onSubmit()">
+  
+      <div class="modal-body" *ngIf="checkData">
+        <!-- {{DataDetails1 | json}} -->
+       <!-- {{DataDetails1.link_STATUS}} -->
+        <!-- {{linkedDispute | json}} -->
+        <p-table
+        #dt1 id="dt1" [value]="linkedDispute"  [columns]="selectedColumns" [rows]="10" [showCurrentPageReport]="true"
+        [scrollable]="false" scrollHeight="400px" styleClass="p-datatable-sm" [rowsPerPageOptions]="[5, 10, 25, 50]"
+        styleClass="p-datatable-sm p-datatable-gridlines" sortMode="multiple"
+        [loading]="loading" selectionMode="single" [(selection)]="selectedTrans" [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="[ 'dispute_STATUS','account_NO','dispute_DATE','dispute_END_DATE' , 
+        'pan' ,'auth_ID', 'amount' ,'dispute_REASON' ]" 
+        [metaKeySelection]="true" responsiveLayout="scroll" selectionMode="single" dataKey="link_TRANSACTION_ID"
+      >
+        <ng-template pTemplate="caption">
+          <div class="flex"  style="float: right; margin-top: -5px; margin-left: 8px">
+            <button type="button" class="btn btn-success btnNew" (click)="exportExcel()" title="Export Excel">
+              <i class="pi pi-file-excel"></i> Export
+            </button>
+          </div>
+    
+          <div class="table-header" style="height: 25px">
+    
+            <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" class="multicol"
+            selectedItemsLabel="{0} columns selected" placeholder="Choose Columns" [ngModelOptions]="{standalone: true}"></p-multiSelect>
+    
+            <span class="p-input-icon-left searchtable">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text"  [ngModelOptions]="{standalone: true}" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
+            </span>
+    
+          </div>
+        </ng-template>
+    
+        <ng-template pTemplate="header"  let-columns>
+          <tr>
+            <th style="width: 3rem" > <!--*ngIf="DataDetails1.link_STATUS == 'Multi Linked'"-->
+              <!-- <p-tableHeaderCheckbox></p-tableHeaderCheckbox> -->
+            </th>
+
+            <th *ngFor="let col of columns" pSortableColumn={{col.field}}>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                {{col.header}}
+              <p-sortIcon field={{col.field}}></p-sortIcon>
+             </div>
+           </th>
+          </tr>
+    
+          <tr>
+            <th style="width: 3rem" ></th>
+            <th *ngFor="let col of columns">
+              <p-columnFilter type="text"  field={{col.field}}></p-columnFilter> <!-- type="numeric"-->
+           </th>
+          </tr>
+          
+        </ng-template>
+    
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+       
+          <tr>
+            <td >
+              <p-tableRadioButton [value]="rowData" (click)="selectRow(rowData)"></p-tableRadioButton>
+              <!-- <p-tableCheckbox [value]="rowData" (click)="selectRow(rowData)"></p-tableCheckbox> -->
+           </td>
+         
+            <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+           </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="9"><h6 class="emptymessage">No Data Found</h6></td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+    
+      </div>
+  
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success" ><i class="pi pi-check"></i> Save</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onReset()"><i class="pi pi-times"></i> Cancel</button>
+      </div>
+    </form>
+  
+    </div>
+  </div>
+  </div>
+
+
+
+
+  

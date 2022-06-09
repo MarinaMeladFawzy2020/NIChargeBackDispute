@@ -1,0 +1,101 @@
+<p-toast position="top-left"></p-toast>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+<div class="actions">
+    <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search btnNew" [disabled]="myForm.invalid"> </p-button>
+    <p-button label="Reset" type="button" icon="pi pi-refresh" styleClass="p-button-secondary btnNew " [style]="{'margin-left': '.5em'}"  data-dismiss="modal" (click)="reset()"></p-button>
+</div>
+
+<div class="p-1">
+    <p-accordion>
+        <p-accordionTab header="Search" [transitionOptions]="'100ms'"  [selected]="true">
+            <div class="formControID">
+                    <div class="row  search">
+                        <div class="col-2">
+                            <label for="pan">PAN </label>
+                            <input type="text" formControlName="pan"  class="form-control" id="pan"  [(ngModel)]="pan"
+                            [ngClass]="{'border-danger': myForm.get('pan')?.invalid && myForm.get('pan')?.errors &&
+                            (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)}  " >
+                            <div *ngIf="myForm.get('pan')?.invalid && myForm.get('pan')?.errors && (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['pan']?.errors?.['required']"> pan is required.</div>
+                             </div>
+                        </div>
+
+                        <div class="col-2">
+                            <label for="auth_ID">AUTH ID </label>
+                            <p-inputNumber [useGrouping]="false" id="auth_ID" name="auth_ID"  formControlName="auth_ID" [min]="0" [(ngModel)]="auth_ID"
+                            [ngClass]="{'border-danger': myForm.get('auth_ID')?.invalid && myForm.get('auth_ID')?.errors &&
+                            (myForm.get('auth_ID')?.dirty || myForm.get('auth_ID')?.touched)}  " > </p-inputNumber>
+                            <div *ngIf="myForm.get('auth_ID')?.invalid && myForm.get('auth_ID')?.errors && (myForm.get('auth_ID')?.dirty || myForm.get('auth_ID')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['auth_ID']?.errors?.['required']"> auth_ID is required.</div>
+                             </div>
+                        </div>
+            
+                    
+                        <div class="col-2">
+                            <label for="amount">Amount </label>
+                            <p-inputNumber [useGrouping]="false" id="amount" name="amount"  formControlName="amount"  mode="decimal"  [minFractionDigits]="1" [maxFractionDigits]="5" [(ngModel)]="amount"
+                            [ngClass]="{'border-danger': myForm.get('amount')?.invalid && myForm.get('amount')?.errors &&
+                            (myForm.get('amount')?.dirty || myForm.get('amount')?.touched)} " > </p-inputNumber>
+                            <div *ngIf="myForm.get('amount')?.invalid && myForm.get('amount')?.errors && (myForm.get('amount')?.dirty || myForm.get('amount')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['amount']?.errors?.['required']"> amount is required.</div>
+                             </div>
+            
+                        </div>
+                        <div class="col-2">
+                            <label for="dispute_DATE">Dispute DATE </label>
+                            <div>
+                              <p-calendar formControlName="dispute_DATE"  dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                              id="dispute_DATE" inputId="dispute_DATE"  name="dispute_DATE"  [(ngModel)]="dispute_DATE"
+                              [ngClass]="{'border-danger': myForm.get('dispute_DATE')?.invalid && myForm.get('dispute_DATE')?.errors &&
+                              (myForm.get('dispute_DATE')?.dirty || myForm.get('dispute_DATE')?.touched)} "></p-calendar>
+                              
+                              <div *ngIf="myForm.get('dispute_DATE')?.invalid && myForm.get('dispute_DATE')?.errors && (myForm.get('dispute_DATE')?.dirty || myForm.get('dispute_DATE')?.touched)">
+                                  <div class="form-text text-danger mt-1" *ngIf="myForm.controls['dispute_DATE']?.errors?.['required']"> dispute_DATE is required.</div>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                        <label for="account_NO">ACCOUNT NO </label>
+                        <input type="text" formControlName="account_NO"  class="form-control" id="account_NO"  [(ngModel)]="account_NO"
+                        [ngClass]="{'border-danger': myForm.get('account_NO')?.invalid && myForm.get('account_NO')?.errors &&
+                        (myForm.get('account_NO')?.dirty || myForm.get('account_NO')?.touched)}  " >
+                        <div *ngIf="myForm.get('account_NO')?.invalid && myForm.get('account_NO')?.errors && (myForm.get('account_NO')?.dirty || myForm.get('account_NO')?.touched)">
+                            <div class="form-text text-danger mt-1" *ngIf="myForm.controls['account_NO']?.errors?.['required']"> account_NO is required.</div>
+                        </div>
+                        </div>
+
+                        <div class="col-2">
+                            <label for="dispute_REASON">DISPUTE REASON  </label>
+                            <p-inputNumber [useGrouping]="false" id="dispute_REASON" name="dispute_REASON"  formControlName="dispute_REASON" [min]="0" [(ngModel)]="dispute_REASON"
+                            [ngClass]="{'border-danger': myForm.get('dispute_REASON')?.invalid && myForm.get('dispute_REASON')?.errors &&
+                            (myForm.get('dispute_REASON')?.dirty || myForm.get('dispute_REASON')?.touched)}  " > </p-inputNumber>
+                            <div *ngIf="myForm.get('dispute_REASON')?.invalid && myForm.get('dispute_REASON')?.errors && (myForm.get('dispute_REASON')?.dirty || myForm.get('dispute_REASON')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['dispute_REASON']?.errors?.['required']"> dispute_REASON is required.</div>
+                             </div>
+                        </div>
+                  
+                
+                    </div>
+            
+        
+            
+            
+            
+            </div>
+
+       
+        </p-accordionTab>
+    </p-accordion>
+
+</div>
+
+</form>
+
+      <!-- <div class="col-2">
+                            <label>pan</label>
+                            <p-dropdown inputId="TaskStatus" [options]="TaskStatus" [(ngModel)]="selectedTaskStatus"
+                                name="work_ITEM_STATUS" placeholder="Select Status" [showClear]="true"></p-dropdown>
+    </div> -->

@@ -1,0 +1,56 @@
+<button type="button" class="btn btn-success btnNew mt-1 ml-1" data-toggle="modal" data-target="#importFromjira" title="importFromjira" >
+    <i class="pi pi-upload"></i> import From Jira
+  </button>
+  
+  <div class="modal fade" id="importFromjira" tabindex="-1" role="dialog" aria-labelledby="importFromjiraLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
+  
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="importFromjiraLabel">import From Jira</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  
+      <div class="modal-body">
+            <div class="form-row">
+            
+              <div class="form-group col-md-3">
+                <label for="ticket_ID">Ticket ID - 10089 <span class="text-danger">*</span> </label>
+                <input type="text" formControlName="ticket_ID"  class="form-control" id="ticket_ID" 
+                [ngClass]="{'border-danger': myForm.get('pan')?.invalid && myForm.get('pan')?.errors &&
+                (myForm.get('ticket_ID')?.dirty || myForm.get('pan')?.touched)}" >
+                
+                <div *ngIf="myForm.get('ticket_ID')?.invalid && myForm.get('ticket_ID')?.errors && (myForm.get('ticket_ID')?.dirty || myForm.get('ticket_ID')?.touched)">
+                    <div class="form-text text-danger mt-1" *ngIf="myForm.controls['ticket_ID']?.errors?.['required']"> ticket_ID is required.</div>
+                 </div>
+
+              </div>
+            
+  
+        
+ 
+        
+            
+  
+              </div>
+  
+           
+  
+  
+  
+    
+      </div>
+  
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success" [disabled]="myForm.invalid"><i class="pi pi-check"></i> Save</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="reset()"><i class="pi pi-times"></i> Cancel</button>
+      </div>
+    </form>
+  
+    </div>
+  </div>
+  </div>

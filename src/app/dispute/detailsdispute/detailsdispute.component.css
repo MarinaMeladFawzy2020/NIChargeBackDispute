@@ -1,0 +1,29 @@
+.itemDetails{
+    padding: 2px;
+    font-size: 13px;
+}
+
+.title{
+    font-weight: 800;
+    font-size: 12px !important;
+}
+.actions{
+    float: right;
+}
+
+.emptyMessg{
+    font-size: 18px !important;
+    margin-left: 41%;
+}
+
+.p-tabview-nav-container{
+    margin-top: -22px !important;
+}
+
+.p-fieldset.p-fieldset-toggleable .p-fieldset-legend , .fieldset {
+    width: 42% !important;
+}
+
+.hidden-display{
+display: none;
+}

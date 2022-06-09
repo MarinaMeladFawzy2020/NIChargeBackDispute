@@ -1,0 +1,88 @@
+<p-toast position="top-left"></p-toast>
+
+<app-importfromjira ></app-importfromjira>
+<app-createdispute (getResponse)="getDoneCreate($event)" ></app-createdispute>
+<app-searchdispute (getResponse)="getDoneSearch($event)"></app-searchdispute>
+
+<div style="margin: 5px">
+  <!-- [columns]="cols"-->
+  <p-table
+    #dt1 id="dt1" [value]="AllDispute"  [columns]="selectedColumns" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+    [scrollable]="false" scrollHeight="400px" styleClass="p-datatable-sm" [rowsPerPageOptions]="[5, 10, 25, 50 , 100]"
+    styleClass="p-datatable-sm p-datatable-gridlines"
+    [loading]="loading" selectionMode="single" [(selection)]="selectedProcess" [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="[ 'dispute_STATUS','account_NO','dispute_DATE','dispute_END_DATE','pan' ,'auth_ID', 'amount' ,'dispute_REASON' ]"
+    [metaKeySelection]="true" responsiveLayout="scroll" selectionMode="multiple" dataKey="account_NO"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex"  style="float: right; margin-top: -5px; margin-left: 8px">
+        <button type="button" class="btn btn-success btnNew" (click)="exportExcel()" title="Export Excel">
+          <i class="pi pi-file-excel"></i> Export
+        </button>
+      </div>
+
+      <div class="table-header" style="height: 25px">
+
+        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" class="multicol"
+        selectedItemsLabel="{0} columns selected" placeholder="Choose Columns"></p-multiSelect>
+
+        <span class="p-input-icon-left searchtable">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text"  ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
+        </span>
+
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header"  let-columns>
+      <tr>
+        <th></th>
+        <th *ngFor="let col of columns" pSortableColumn={{col.field}}>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            {{col.header}}
+          <p-sortIcon field={{col.field}}></p-sortIcon>
+         </div>
+       </th>
+      </tr>
+
+      <tr>
+        <th></th>
+        <th *ngFor="let col of columns">
+          <p-columnFilter type="text" field={{col.field}}></p-columnFilter>
+       </th>
+      </tr>
+      
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+   
+      <tr>
+        <td>
+          <span style="display: flex;">
+          <button type="button" title="View Details"
+          (click)="onClickDetails(rowData)"  class="btn btn-warning actions warning_background viewData mr-2">
+          <i class="pi pi-eye white "></i></button>
+          <!-- {{rowData.link_STATUS }} -->
+          <span *ngIf="rowData.link_STATUS !== 'CMS Linked'"> <!--CMS Not Linked-->
+            <button type="button" title="Edit Details" class="btn btn-success actions  viewData" 
+            data-toggle="modal" data-target="#editdispute"  (click)="onClickEdit(rowData)">
+              <i class="pi pi-pencil"></i>
+            </button>
+            <app-editdispute #editdispute (getResponse1)="getDoneEdit($event)"></app-editdispute>
+          </span>
+        </span>
+        </td>
+
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+       </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="9"><h6 class="emptymessage">No Data Found</h6></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

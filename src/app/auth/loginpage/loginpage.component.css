@@ -1,0 +1,29 @@
+
+
+.homepage{
+    background-color: #ddd;
+ }
+ 
+ .logoimage{
+    width: 240px;
+    padding: 0 10px;
+    margin-left: 27%;
+ }
+ 
+ .shadow-2-strong{
+    border-radius: 0.25rem; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 0;
+ }
+ .full-width {
+    width: 100%;
+    border-radius: .40rem;
+ }
+ 
+ .btn:not(:disabled):not(.disabled){
+    color: white !important;
+ }
+
+ .text-danger{
+    font-size: 13px;
+ }
