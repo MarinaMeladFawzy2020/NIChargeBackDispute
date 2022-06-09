@@ -270,13 +270,13 @@ p-inputnumber, .p-inputnumber  {
 }
 
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend{
-    width: 200px;
-    font-size: 14px;
+    width: 180px;
+    font-size: 13px;
     padding: 0;
     margin-left: 20px;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a{
-    padding: 10px 13px;
+    padding:7px 3px;
     text-decoration: none;
 }
 p-fieldset .p-fieldset-content {

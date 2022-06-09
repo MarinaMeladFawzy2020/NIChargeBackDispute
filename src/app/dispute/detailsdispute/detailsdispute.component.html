@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-12" style="display: contents;">
-            <div  class="col-6 col-sm-6 mb-1" style="margin-top:-2px"  *ngFor="let section of allSections">
+            <div  class="col-6 col-sm-6 mb-1" style="margin-top:2px"  *ngFor="let section of allSections">
                 <p-fieldset class="fieldset" [legend]="section.sectionName" [toggleable]="true"  >
                     <div class="col-6 col-sm-6 itemDetails"  *ngFor="let title of section.allParamter"  style="float: left"  [ngClass]="{'hidden-display': title.is_VISIABLE == 0}">
                         <span style="display: flex;" *ngIf="title.is_VISIABLE == 1" > 
