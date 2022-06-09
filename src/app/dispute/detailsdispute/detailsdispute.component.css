@@ -1,11 +1,11 @@
 .itemDetails{
     padding: 2px;
-    font-size: 13px;
+    font-size: 10px;
 }
 
 .title{
     font-weight: 800;
-    font-size: 12px !important;
+    font-size: 11px !important;
 }
 .actions{
     float: right;

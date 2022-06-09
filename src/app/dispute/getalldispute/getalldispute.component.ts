@@ -63,7 +63,7 @@ loading:boolean=true;
 
   getAllDispute(_dataobj:any){
     this.loading = true;
-    this.dataApi.findDispute(0,1000,_dataobj).subscribe(
+    this.dataApi.findDispute(0,500,_dataobj).subscribe(
       Response=> {
         console.log(Response)
         this.loading = false;
