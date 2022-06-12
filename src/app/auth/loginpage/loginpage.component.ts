@@ -16,7 +16,7 @@ export class LoginpageComponent implements OnInit {
   constructor(private authService:AuthService,private router:Router , private messageService: MessageService) { 
     let token = sessionStorage.getItem('token')
     if(token){
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['/dispute']) //dashboard
     }
   }
 
@@ -37,7 +37,7 @@ export class LoginpageComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe((result:any)=>{
       console.log(result)
       if(result.code == 1){
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/dispute'])//dashboard
         this.messageService.add({severity:'success', summary: 'Success', detail: 'Done successfully'});
     
       }else{

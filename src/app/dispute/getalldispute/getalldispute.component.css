@@ -9,3 +9,10 @@
 .viewData{
     padding: 2px 11px;
 }
+.background-red{
+    background: red !important;
+}
+
+.background-green{
+    background: #06bc06 !important;
+}

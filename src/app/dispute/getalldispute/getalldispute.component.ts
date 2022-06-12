@@ -28,16 +28,17 @@ loading:boolean=true;
       { field: 'dispute_REASON', header: 'Dispute Reason' , display:1 },
       { field: 'dispute_STATUS', header: 'Dispute Status', display:1 },
       { field: 'dispute_DATE', header: 'Dispute Date' , display:1  },
-      { field: 'dispute_END_DATE', header: 'Dispute End Date' , display:1  },
+      { field: 'received_DATE', header: 'Received Date' , display:1  },
       { field: 'link_STATUS', header: 'link Status' , display:0 },
       { field: 'link_TRANSACTION_ID', header: 'link Transaction ID' , display:0 },
-      { field: 'terminal_ID', header: 'terminal_ID' , display:0 },
-      { field: 'type', header: 'type' , display:0 },
-      { field: 'stan', header: 'stan' , display:0 },
-      { field: 'reference', header: 'reference' , display:0 },
-      { field: 'dispute_DESCRIPTION', header: 'dispute_DESCRIPTION' , display:0 },
-      { field: 'dispute_ID', header: 'dispute_ID' , display:0},
-
+      { field: 'terminal_ID', header: 'Terminal ID' , display:0 },
+      { field: 'type', header: 'Type' , display:0 },
+      { field: 'stan', header: 'Stan' , display:0 },
+      { field: 'reference', header: 'Reference' , display:0 },
+      { field: 'dispute_DESCRIPTION', header: 'Dispute Description' , display:0 },
+      { field: 'dispute_ID', header: 'Dispute ID' , display:0},
+      { field: 'time_BETWEEN_DATE', header: 'TAT' , display:1},
+      // { field: 'TAT', header: 'TAT' , display:1},
       
   ];
   this.selectedcols = this.cols.filter((col: any) =>  col.display == 1);
@@ -146,4 +147,13 @@ onClickEdit(dataRow:any){
   console.log(dataRow)
   this.editdispute.getRowDispute(dataRow);
 }
+
+calculateDiff(dispute_DATE :any , received_DATE :any ){
+ // console.log(new Date(dispute_DATE));
+ // console.log(typeof(dispute_DATE));
+  let diffDays = Math.floor((new Date(received_DATE).getTime() - new Date(dispute_DATE).getTime()) / 1000 / 60 / 60 / 24);
+ // console.log(diffDays);
+  return diffDays ;
+}
+
 }

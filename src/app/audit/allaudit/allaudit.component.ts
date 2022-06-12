@@ -30,10 +30,10 @@ getdatabysearch:boolean = false;
     // this.paginate({page: 1, first: 0, rows: 10, pageCount: 5});
 
     this.cols = [
-      { field: 'user_NAME', header: 'user_NAME' , display:1},
-      { field: 'user_ACTION', header: 'user_ACTION',display:1 },
-      { field: 'audit_ID', header: 'audit_ID', display:1},
-      { field: 'date_TIME', header: 'date_TIME', display:1}
+      { field: 'user_NAME', header: 'User Name' , display:1},
+      { field: 'user_ACTION', header: 'User Action',display:1 },
+      { field: 'audit_ID', header: 'Audit ID', display:1},
+      { field: 'date_TIME', header: 'Date Time', display:1}
   ];
 
   this.selectedcols = this.cols.filter((col: any) =>  col.display == 1);
@@ -85,8 +85,8 @@ exportExcel() {
   import('xlsx').then((xlsx): void => {
   // console.log( document.getElementById('dt1'));
   this.dataID = document.getElementById('dt1');
-  // const worksheet = xlsx.utils.table_to_sheet(this.dataID);
-    const worksheet = xlsx.utils.json_to_sheet(this.AllSysAudit);
+  const worksheet = xlsx.utils.table_to_sheet(this.dataID);
+  //  const worksheet = xlsx.utils.json_to_sheet(this.AllSysAudit);
     const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
     const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
     this.saveAsExcelFile(excelBuffer, "SysAudit");

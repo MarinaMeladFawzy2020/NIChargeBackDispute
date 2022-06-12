@@ -35,7 +35,6 @@ allpar:any =[];
     console.log(this.activeRoute.snapshot.params.id);
     console.log(parseInt(this.activeRoute.snapshot.params.id));
     this.disputeId = parseInt(this.activeRoute.snapshot.params.id);
-
     this.dataApi.getAllAttributeLabels().subscribe(
       Response=> {
         console.log(Response)
@@ -44,9 +43,6 @@ allpar:any =[];
           this.getDetails(this.disputeId);
         }
       });
-
-  
-
 
   }
 
@@ -61,7 +57,6 @@ allpar:any =[];
           this.emptyMessg = "No Data Found";
         }else{
           this.DataDetails = Response[0];
-
           if(this.DataDetails.link_STATUS == 'CMS Not Linked' && this.DataDetails.dispute_STATUS ==  'New'){
             this.showLinked = true;
           }
@@ -102,9 +97,15 @@ allpar:any =[];
     this.dataApi.LinkCMS(this.DataDetails).subscribe(
       Response=> {
         console.log(Response)
-        if(Response.code == 1){
+        if(Response.code == 1 || Response.code == 2 || Response.code == 3 || Response.code == 4 ){
           this.messageService.add({severity:'success', summary: 'Success', detail: Response.message});
           this.getDetails(this.DataDetails.dispute_ID)
+          // if(this.DataDetails.link_STATUS == 'CMS Not Linked' && this.DataDetails.dispute_STATUS ==  'New'){
+          //   this.showLinked = true;
+          // }
+          if(Response.code == 1){
+            this.showLinked = false;
+          }
         }else{
           this.messageService.add({severity:'error', summary: 'Error', detail: Response.message});
         }  

@@ -22,7 +22,7 @@ import { ImportfromjiraComponent } from './importfromjira/importfromjira.compone
     LinkeddisputeComponent,
     HistorydisputeComponent,
     EditdisputeComponent,
-    ImportfromjiraComponent , 
+    ImportfromjiraComponent  
   ],
   imports: [
     CommonModule,

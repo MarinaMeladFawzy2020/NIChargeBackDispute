@@ -9,7 +9,7 @@
 
                         <div class="col-2">
                             <div  *ngIf="myForm.get('toDate')?.value == ''  || myForm.get('toDate')?.value == null">
-                            <label for="fromDate">fromDate</label>       
+                            <label for="fromDate">From Date</label>       
                             <div>
                               <p-calendar formControlName="fromDate"    dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
                               id="fromDate" inputId="fromDate"  name="fromDate"  [(ngModel)]="fromDate"  
@@ -22,7 +22,7 @@
                             </div>
 
                             <div *ngIf="myForm.get('toDate')?.value !== '' &&  myForm.get('toDate')?.value !== null">
-                                <label for="fromDate">fromDate <span class="text-danger">*</span></label>         
+                                <label for="fromDate">From Date <span class="text-danger">*</span></label>         
                                 <div>
                                   <p-calendar formControlName="fromDate"  dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
                                   id="fromDate" inputId="fromDate"  name="fromDate"  [(ngModel)]="fromDate"   [required]="true"
@@ -39,7 +39,7 @@
 
                         <div class="col-2">
                             <div *ngIf="myForm.get('fromDate')?.value == '' || myForm.get('fromDate')?.value == null">
-                            <label for="toDate">to Date</label>
+                            <label for="toDate">To Date</label>
                               <p-calendar formControlName="toDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
                               id="toDate" inputId="toDate"  name="toDate"  [(ngModel)]="toDate" [required]="false"
                               [ngClass]="{'border-danger': myForm.get('toDate')?.invalid && myForm.get('toDate')?.errors &&
@@ -50,7 +50,7 @@
                             </div>
 
                             <div *ngIf="myForm.get('fromDate')?.value !== '' && myForm.get('fromDate')?.value !== null">
-                                <label for="toDate">to Date <span class="text-danger">*</span></label>
+                                <label for="toDate">To Date <span class="text-danger">*</span></label>
                                 <p-calendar formControlName="toDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
                                 id="toDate" inputId="toDate"  name="toDate"  [(ngModel)]="toDate"  [required]="true"
                                 [ngClass]="{'border-danger': myForm.get('toDate')?.invalid && myForm.get('toDate')?.errors &&
@@ -66,7 +66,7 @@
                    
 
                         <div class="col-2">
-                            <label for="userName">userName </label>
+                            <label for="userName">User Name </label>
                             <input type="text" formControlName="userName"  class="form-control" id="userName"  [(ngModel)]="userName"
                             [ngClass]="{'border-danger': myForm.get('userName')?.invalid && myForm.get('userName')?.errors &&
                             (myForm.get('userName')?.dirty || myForm.get('userName')?.touched)}  " >
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="col-2">
-                            <label for="userAction">userAction </label>
+                            <label for="userAction">User Action </label>
                             <input type="text" formControlName="userAction"  class="form-control" id="userAction"  [(ngModel)]="userAction"
                             [ngClass]="{'border-danger': myForm.get('userAction')?.invalid && myForm.get('userAction')?.errors &&
                             (myForm.get('userAction')?.dirty || myForm.get('userAction')?.touched)}  " >

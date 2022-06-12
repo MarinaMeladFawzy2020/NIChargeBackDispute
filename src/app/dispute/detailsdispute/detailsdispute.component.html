@@ -1,12 +1,13 @@
 <p-toast position="top-right"></p-toast>
 
+<!-- <app-loading></app-loading> -->
 
 <!-- {{DataDetails | json}} -->
 <div class="p-3"  >
     <div class="row" style="margin-bottom: -20px;">
         <div class="col-12" style="margin-top: -14px; margin-bottom: -12px;">
             <div class="actions" *ngIf="!checkNoFound" > 
-                <p-button label="Link CMS" type="button" icon="pi pi-link" styleClass="p-button-success p-search btnNew" [disabled]="checkNoFound" (onClick)="LinkCMS()"  >  <!--*ngIf="showLinked"-->
+                <p-button label="Link CMS" type="button" icon="pi pi-link" styleClass="p-button-success p-search btnNew" [disabled]="checkNoFound" (onClick)="LinkCMS()"  *ngIf="showLinked">  <!--*ngIf="showLinked"-->
                 </p-button>
                 <p-button label="Linked Transaction" type="submit" icon="pi pi-link" styleClass="p-button-danger btnNew " [disabled]="checkNoFound" 
                 [style]="{'margin-left': '.5em'}"   (click)="linkedDispute()"  data-toggle="modal" data-target="#linkeddispute" ></p-button>
@@ -22,16 +23,16 @@
         </div>
 
         <div class="col-12" style="display: contents;"  *ngIf="!checkNoFound">
-            <div  class="col-6 col-sm-6 mb-1" style="margin-top:2px"  *ngFor="let section of allSections">
+            <div  class="col-6 col-sm-6 mb-1" style="margin-top:2px; padding: 0 5px;"  *ngFor="let section of allSections">
                 <p-fieldset class="fieldset" [legend]="section.sectionName" [toggleable]="true"  >
                     <div class="col-6 col-sm-6 itemDetails"  *ngFor="let title of section.allParamter"  style="float: left"  [ngClass]="{'hidden-display': title.is_VISIABLE == 0}">
                         <span style="display: flex;" *ngIf="title.is_VISIABLE == 1" > 
-                            <div class="col-6" style="text-align: right; padding: 0 4px;" >
+                            <div class="col-5" style="text-align: right; padding: 0 4px;" >
                                <span> 
                                 <label  class="title">{{title.label_NAME_EN}} </label>
                               </span>
                             </div>
-                            <div class="col-6" style="padding: 0 0px;">
+                            <div class="col-7" style="padding: 0 0px;">
                                 <span  *ngFor="let item of DataDetails | keyvalue" >
                                     <label *ngIf="title.object_NAME == item.key" > <span *ngIf="item.value !== ' '"> : </span></label>
                                     <label *ngIf="title.object_NAME == item.key" class="ml-2" > {{item.value}} </label>
