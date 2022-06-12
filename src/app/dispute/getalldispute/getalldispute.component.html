@@ -69,7 +69,11 @@
 
     <ng-template pTemplate="body" let-rowData let-columns="columns">
    
-      <tr>
+      <!-- <tr [ngClass]="{
+        'background-green' : rowData.time_BETWEEN_DATE == 0 || rowData.time_BETWEEN_DATE <= 3  ,
+        'background-yellow' :  rowData.time_BETWEEN_DATE > 3 && rowData.time_BETWEEN_DATE <= 6 ,
+        'background-red' :  rowData.time_BETWEEN_DATE > 6 }"> -->
+        <tr>
         <td>
           <span style="display: flex;">
           <button type="button" title="View Details"
@@ -86,16 +90,16 @@
         </span>
         </td>
 
-        <td *ngFor="let col of columns">
-          {{rowData[col.field]}}
+        <td *ngFor="let col of columns" >
+          <!-- {{rowData[col.field]}} -->
+          <span *ngIf="col.field !== 'time_BETWEEN_DATE'" >{{rowData[col.field]}} </span>
+          <span *ngIf="col.field == 'time_BETWEEN_DATE'"  [ngClass]="{
+            'background-green' : rowData.time_BETWEEN_DATE == 0 || rowData.time_BETWEEN_DATE <= 3  ,
+            'background-yellow' :  rowData.time_BETWEEN_DATE > 3 && rowData.time_BETWEEN_DATE <= 6 ,
+            'background-red' :  rowData.time_BETWEEN_DATE > 6 }"> {{rowData[col.field]}} </span>
        </td>
 
-       <!-- <td  [ngClass]="{
-        'background-red' : calculateDiff(rowData['dispute_DATE'] , rowData['received_DATE'])  == 3,
-        'background-green' :  calculateDiff(rowData['dispute_DATE'] , rowData['received_DATE'])  == 2
-    }">
-        <span>{{calculateDiff(rowData.dispute_DATE , rowData.received_DATE)}} </span>
-     </td> -->
+    
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">

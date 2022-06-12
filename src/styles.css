@@ -120,7 +120,7 @@ font-weight: 600;
 
 
 label , .form-control , .p-datepicker table td ,.p-calendar-w-btn .p-datepicker-trigger , .p-inputtext{
-    font-size: 13px !important;
+    font-size: 12px !important;
 }
 .p-paginator .p-paginator-current{
     font-size: 14px !important;

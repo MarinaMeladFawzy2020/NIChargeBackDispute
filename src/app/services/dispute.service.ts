@@ -73,6 +73,11 @@ export class DisputeService {
     return this.http.get(this.URL+`/getAttachment?attachmentId=${attachmentId}`);
   }
 
+  getIssue(issueKey :any): Observable<any> {
+    return this.http.get(this.URL+`/GetIssue?issueKey=${issueKey}`);
+  }
+
+
 
 
  

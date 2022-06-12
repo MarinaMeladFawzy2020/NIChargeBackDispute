@@ -19,13 +19,13 @@
             <div class="form-row">
             
               <div class="form-group col-md-3">
-                <label for="ticket_ID">Ticket ID - 10089 <span class="text-danger">*</span> </label>
-                <input type="text" formControlName="ticket_ID"  class="form-control" id="ticket_ID" 
+                <label for="issueKey">Issue Key <span class="text-danger">*</span> </label>
+                <input type="text" formControlName="issueKey"  class="form-control" id="issueKey" 
                 [ngClass]="{'border-danger': myForm.get('pan')?.invalid && myForm.get('pan')?.errors &&
-                (myForm.get('ticket_ID')?.dirty || myForm.get('pan')?.touched)}" >
+                (myForm.get('issueKey')?.dirty || myForm.get('pan')?.touched)}" >
                 
-                <div *ngIf="myForm.get('ticket_ID')?.invalid && myForm.get('ticket_ID')?.errors && (myForm.get('ticket_ID')?.dirty || myForm.get('ticket_ID')?.touched)">
-                    <div class="form-text text-danger mt-1" *ngIf="myForm.controls['ticket_ID']?.errors?.['required']"> ticket_ID is required.</div>
+                <div *ngIf="myForm.get('issueKey')?.invalid && myForm.get('issueKey')?.errors && (myForm.get('issueKey')?.dirty || myForm.get('issueKey')?.touched)">
+                    <div class="form-text text-danger mt-1" *ngIf="myForm.controls['issueKey']?.errors?.['required']"> issueKey is required.</div>
                  </div>
 
               </div>

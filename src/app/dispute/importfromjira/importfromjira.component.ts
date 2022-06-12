@@ -16,15 +16,15 @@ export class ImportfromjiraComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      'ticket_ID':new FormControl('',[Validators.required]), //Validators.pattern("[0-9]{11}")
+      'issueKey':new FormControl('',[Validators.required]), //Validators.pattern("[0-9]{11}")
     })
 
 
   }
 
   onSubmit(){
-    this.ticket_ID = this.myForm.value?.ticket_ID
-    this.dataApi.getAttachment( this.ticket_ID).subscribe((result:any)=>{
+    this.issueKey = this.myForm.value?.issueKey
+    this.dataApi.getIssue( this.issueKey).subscribe((result:any)=>{
       console.log(result);
       if(result.code == 1){       
         bootbox.alert({

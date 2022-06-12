@@ -10,9 +10,19 @@
     padding: 2px 11px;
 }
 .background-red{
-    background: red !important;
+    background: #df4141e3 !important;
+    color: white !important;
+    padding: 13px 50px;
 }
 
 .background-green{
-    background: #06bc06 !important;
+    background:#039f03b3 !important;
+    color: white !important;
+    padding: 13px 50px;
+
+}
+.background-yellow{
+    background: yellow !important;
+    padding: 13px 40px
+
 }

@@ -22,7 +22,7 @@
                 <label for="pan">Pan <span class="text-danger">*</span></label>
                 <input type="text" formControlName="pan" [(ngModel)]="dataDetails.pan" class="form-control" id="pan" placeholder=""  
                 [ngClass]="{'border-danger': myForm.get('pan')?.invalid && myForm.get('pan')?.errors &&
-                (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)}  " >
+                (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)}" >
    
                 <div *ngIf="myForm.get('pan')?.invalid && myForm.get('pan')?.errors && (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)">
                     <div class="form-text text-danger mt-1" *ngIf="myForm.controls['pan']?.errors?.['required']"> pan is required.</div>

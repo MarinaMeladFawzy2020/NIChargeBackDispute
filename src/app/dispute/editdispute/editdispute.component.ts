@@ -43,6 +43,13 @@ export class EditdisputeComponent implements OnInit {
   //  alert("hh")
     console.log(_dataRow)
     this.dataDetails = _dataRow ;
+    Object.keys(this.dataDetails).forEach(key => {
+      //  console.log("key: ", key); console.log("Value: ", _f[key]); console.log("length: ", _f[key].length); console.log("typeof: ", typeof(_f[key]));
+      if(this.dataDetails[key] == null){
+        console.log("Value: ", this.dataDetails[key]);
+        this.dataDetails[key] = " ";
+      }
+    });
   }
 
   onSubmit(){
