@@ -21,7 +21,7 @@ aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
               <label for="pan">Pan <span class="text-danger">*</span></label>
               <input type="text" formControlName="pan"  class="form-control" id="pan" placeholder=""  
               [ngClass]="{'border-danger': myForm.get('pan')?.invalid && myForm.get('pan')?.errors &&
-              (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)}  " >
+              (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)}" >
  
               <div *ngIf="myForm.get('pan')?.invalid && myForm.get('pan')?.errors && (myForm.get('pan')?.dirty || myForm.get('pan')?.touched)">
                   <div class="form-text text-danger mt-1" *ngIf="myForm.controls['pan']?.errors?.['required']"> pan is required.</div>
@@ -84,7 +84,7 @@ aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
             
 
             <div class="form-group col-md-3">
-              <label for="dispute_REASON">Dispute Reason  <span class="text-danger">*</span></label>
+              <label for="dispute_REASON">Comments  <span class="text-danger">*</span></label>
               <p-inputNumber [useGrouping]="false" id="dispute_REASON" name="dispute_REASON"  formControlName="dispute_REASON" placeholder="" [min]="0" [(ngModel)]="dispute_REASON"
               [ngClass]="{'border-danger': myForm.get('dispute_REASON')?.invalid && myForm.get('dispute_REASON')?.errors &&
               (myForm.get('dispute_REASON')?.dirty || myForm.get('dispute_REASON')?.touched)}  " > </p-inputNumber>
@@ -115,7 +115,7 @@ aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
             </div>
 
             <div class="form-group ">
-            <label for="dispute_DESCRIPTION">Dispute Description</label>
+            <label for="dispute_DESCRIPTION">Bank Dispute Description</label>
             <textarea  class="form-control" formControlName="dispute_DESCRIPTION"  [rows]="2" [cols]="1000" 
             pInputTextarea [autoResize]="autoResize "></textarea>
        

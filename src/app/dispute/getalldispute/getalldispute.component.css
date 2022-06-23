@@ -9,16 +9,23 @@
 .viewData{
     padding: 2px 11px;
 }
+
+.circle{
+    width: 24px;
+    height: 30px;
+    padding: 5px 13px;
+    border-radius: 50%;
+}
 .background-red{
     background: #df4141e3 !important;
-    color: white !important;
-    padding: 13px 50px;
+    /* color: white !important;
+    padding: 13px 50px; */
 }
 
 .background-green{
     background:#039f03b3 !important;
-    color: white !important;
-    padding: 13px 50px;
+    /* color: white !important;
+    padding: 13px 50px; */
 
 }
 .background-yellow{
@@ -26,3 +33,4 @@
     padding: 13px 40px
 
 }
+

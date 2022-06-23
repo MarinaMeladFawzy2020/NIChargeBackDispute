@@ -47,7 +47,7 @@ export class SearchdisputeComponent implements OnInit {
     "amount":  this.myForm.value?.amount ,
     "auth_ID":  this.myForm.value?.auth_ID ,
     "dispute_DATE": this.datePipe.transform(this.myForm.value?.dispute_DATE , 'MM/dd/yyyy'),
-    "dispute_REASON": this.myForm.value?.dispute_REASON ,
+    "bank_DISPUTE_REASON": this.myForm.value?.dispute_REASON ,
     "pan": this.myForm.value?.pan 
   }
    this.getResponse.emit(obj);

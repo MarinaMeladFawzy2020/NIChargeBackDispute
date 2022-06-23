@@ -1,0 +1,23 @@
+
+<div class="col-12 mb-2 ">
+
+<!-- <p-card> -->
+    <p-tabView (onChange)="handleChange($event)" [(activeIndex)]="index">
+        <p-tabPanel  header="logs">
+            <ng-template pTemplate="content">
+                <app-ticketlogs></app-ticketlogs>
+            </ng-template>
+        </p-tabPanel>
+
+        <p-tabPanel  header="Audit">
+            <ng-template pTemplate="content">
+                
+            </ng-template>
+        </p-tabPanel>
+    
+     
+    </p-tabView>
+
+
+<!-- </p-card> -->
+</div>

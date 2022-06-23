@@ -62,12 +62,12 @@ export class EditdisputeComponent implements OnInit {
       "amount": this.myForm.value?.amount,
       "dispute_DATE": this.datePipe.transform(this.myForm.value?.dispute_DATE , 'MM/dd/yyyy'),
       "account_NO": this.myForm.value?.account_NO,
-      "dispute_REASON":this.myForm.value?.dispute_REASON,
+      "bank_DISPUTE_REASON":this.myForm.value?.dispute_REASON,
       "terminal_ID": this.myForm.value?.terminal_ID,
       "stan": this.myForm.value?.stan,
       "type": this.myForm.value?.type,
       "reference": this.myForm.value?.reference,
-      "dispute_DESCRIPTION": this.myForm.value?.dispute_DESCRIPTION,
+      "bank_DISPUTE_DISCRIPTION": this.myForm.value?.dispute_DESCRIPTION,
       "dispute_STATUS": this.dataDetails.dispute_STATUS
     }
     console.log(obj)

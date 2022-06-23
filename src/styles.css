@@ -285,3 +285,13 @@ p-fieldset .p-fieldset-content {
 .p-fieldset .p-fieldset-content{
     padding: 0;
 }
+
+.p-card {
+    border: 1px solid #d9dce0 !important;
+}
+.p-card .p-card-content{
+    padding: 0 !important;
+}
+.p-tabview .p-tabview-panels{
+    padding: 0px !important;
+}

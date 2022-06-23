@@ -1,15 +1,22 @@
 <p-toast position="top-right"></p-toast>
-
 <!-- <app-loading></app-loading> -->
-
 <!-- {{DataDetails | json}} -->
 <div class="p-3"  >
     <div class="row" style="margin-bottom: -20px;">
-        <div class="col-12" style="margin-top: -14px; margin-bottom: -12px;">
+        <div class="col-12" style="margin-top: -10px; margin-bottom: 0px;">
             <div class="actions" *ngIf="!checkNoFound" > 
+
+                <!-- <p-button label="Case Closed Manual" type="button" icon="pi pi-times" styleClass="p-button-danger p-search btnNew" 
+                [disabled]="checkNoFound" (onClick)="closedManual()"  [style]="{'margin-left': '.5em'}"  >  
+                </p-button> -->
+
+                <p-button label="Charge Back Pending" type="button" icon="pi pi-clock" styleClass="p-button-warning p-search btnNew" 
+                [disabled]="checkNoFound" (onClick)="BackPending()"  [style]="{'margin-left': '.5em'}"  *ngIf="showBackPending">  
+                </p-button>
+
                 <p-button label="Link CMS" type="button" icon="pi pi-link" styleClass="p-button-success p-search btnNew" [disabled]="checkNoFound" (onClick)="LinkCMS()"  *ngIf="showLinked">  <!--*ngIf="showLinked"-->
                 </p-button>
-                <p-button label="Linked Transaction" type="submit" icon="pi pi-link" styleClass="p-button-danger btnNew " [disabled]="checkNoFound" 
+                <p-button label="Linked Transaction" type="submit" icon="pi pi-link" styleClass="p-button-info btnNew " [disabled]="checkNoFound" 
                 [style]="{'margin-left': '.5em'}"   (click)="linkedDispute()"  data-toggle="modal" data-target="#linkeddispute" ></p-button>
                 <app-linkeddispute  #linkeddispute></app-linkeddispute>
 
@@ -18,7 +25,6 @@
                 <p-button label="Edit" type="submit" icon="pi pi-pencil" styleClass="p-button-success btnNew" [disabled]="checkNoFound"    *ngIf="DataDetails.link_STATUS !== 'CMS Linked'"
                 [style]="{'margin-left': '.5em'}"   (click)="onClickEdit()"  data-toggle="modal" data-target="#editdispute" ></p-button>
                 <app-editdispute #editdispute (getResponse1)="getDoneEdit($event)" ></app-editdispute>
-
             </div>
         </div>
 
@@ -68,8 +74,6 @@ auth_ID: 11} -->
                 </div>
             </span>
         </div> -->
-
-  
     </div>
 </div>
 

@@ -1,0 +1,125 @@
+<p-toast position="top-left"></p-toast>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div class="p-1">
+    <p-accordion>
+        <p-accordionTab header="Search" [transitionOptions]="'100ms'"  [selected]="true">
+            <div class="formControID">
+                    <div class="row  search">
+
+                        <div class="col-2">
+                            <div  *ngIf="myForm.get('toDate')?.value == ''  || myForm.get('toDate')?.value == null">
+                            <label for="fromDate">From Date</label>       
+                            <div>
+                              <p-calendar formControlName="fromDate"    dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                              id="fromDate" inputId="fromDate"  name="fromDate"  [(ngModel)]="fromDate"  
+                              [ngClass]="{'border-danger': myForm.get('fromDate')?.invalid && myForm.get('fromDate')?.errors &&
+                              (myForm.get('fromDate')?.dirty || myForm.get('fromDate')?.touched)} "></p-calendar>
+                              <div *ngIf="myForm.get('fromDate')?.invalid && myForm.get('fromDate')?.errors && (myForm.get('fromDate')?.dirty || myForm.get('fromDate')?.touched)">
+                                  <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromDate']?.errors?.['required']"> fromDate is required.</div>
+                               </div>
+                            </div>
+                            </div>
+
+                            <div *ngIf="myForm.get('toDate')?.value !== '' &&  myForm.get('toDate')?.value !== null">
+                                <label for="fromDate">From Date <span class="text-danger">*</span></label>         
+                                <div>
+                                  <p-calendar formControlName="fromDate"  dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                                  id="fromDate" inputId="fromDate"  name="fromDate"  [(ngModel)]="fromDate"   [required]="true"
+                                  [ngClass]="{'border-danger': myForm.get('fromDate')?.invalid && myForm.get('fromDate')?.errors &&
+                                  (myForm.get('fromDate')?.dirty || myForm.get('fromDate')?.touched)} "></p-calendar>
+                                  <div *ngIf="myForm.get('fromDate')?.invalid && myForm.get('fromDate')?.errors && (myForm.get('fromDate')?.dirty || myForm.get('fromDate')?.touched)">
+                                      <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromDate']?.errors?.['required']"> fromDate is required.</div>
+                                   </div>
+                                </div>
+                                </div>
+
+                     
+                        </div>
+
+                        <div class="col-2">
+                            <div *ngIf="myForm.get('fromDate')?.value == '' || myForm.get('fromDate')?.value == null">
+                            <label for="toDate">To Date</label>
+                              <p-calendar formControlName="toDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                              id="toDate" inputId="toDate"  name="toDate"  [(ngModel)]="toDate" [required]="false"
+                              [ngClass]="{'border-danger': myForm.get('toDate')?.invalid && myForm.get('toDate')?.errors &&
+                              (myForm.get('toDate')?.dirty || myForm.get('toDate')?.touched)} "></p-calendar>
+                              <div *ngIf="myForm.get('toDate')?.invalid && myForm.get('toDate')?.errors && (myForm.get('toDate')?.dirty || myForm.get('toDate')?.touched)">
+                                  <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toDate']?.errors?.['required']"> toDate is required.</div>
+                               </div>
+                            </div>
+
+                            <div *ngIf="myForm.get('fromDate')?.value !== '' && myForm.get('fromDate')?.value !== null">
+                                <label for="toDate">To Date <span class="text-danger">*</span></label>
+                                <p-calendar formControlName="toDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                                id="toDate" inputId="toDate"  name="toDate"  [(ngModel)]="toDate"  [required]="true"
+                                [ngClass]="{'border-danger': myForm.get('toDate')?.invalid && myForm.get('toDate')?.errors &&
+                                (myForm.get('toDate')?.dirty || myForm.get('toDate')?.touched)} "></p-calendar>
+                                
+                                <div *ngIf="myForm.get('toDate')?.invalid && myForm.get('toDate')?.errors && (myForm.get('toDate')?.dirty || myForm.get('toDate')?.touched)">
+                                    <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toDate']?.errors?.['required']"> toDate is required.</div>
+                                 </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-2">
+                            <label for="isskey">issueKey </label>
+                            <input type="text" formControlName="isskey"  class="form-control" id="isskey"  [(ngModel)]="isskey"
+                            [ngClass]="{'border-danger': myForm.get('isskey')?.invalid && myForm.get('isskey')?.errors &&
+                            (myForm.get('isskey')?.dirty || myForm.get('isskey')?.touched)}  " >
+                            <div *ngIf="myForm.get('isskey')?.invalid && myForm.get('isskey')?.errors && (myForm.get('isskey')?.dirty || myForm.get('isskey')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['isskey']?.errors?.['required']"> issueKey is required.</div>
+                             </div>
+                        </div>
+
+                        <div class="col-2">
+                            <label for="assignee">assingee </label>
+                            <input type="text" formControlName="assignee"  class="form-control" id="assignee"  [(ngModel)]="assignee"
+                            [ngClass]="{'border-danger': myForm.get('assignee')?.invalid && myForm.get('assignee')?.errors &&
+                            (myForm.get('assignee')?.dirty || myForm.get('assignee')?.touched)}  " >
+                            <div *ngIf="myForm.get('assignee')?.invalid && myForm.get('assignee')?.errors && (myForm.get('assignee')?.dirty || myForm.get('assignee')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['assignee']?.errors?.['required']"> assignee is required.</div>
+                             </div>
+                        </div>
+
+
+
+                        <div class="col-2">
+                            <label for="status">status </label>
+                            <input type="text" formControlName="status"  class="form-control" id="status"  [(ngModel)]="status"
+                            [ngClass]="{'border-danger': myForm.get('status')?.invalid && myForm.get('status')?.errors &&
+                            (myForm.get('status')?.dirty || myForm.get('status')?.touched)}  " >
+                            <div *ngIf="myForm.get('status')?.invalid && myForm.get('status')?.errors && (myForm.get('status')?.dirty || myForm.get('status')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['status']?.errors?.['required']"> status is required.</div>
+                             </div>
+                        </div>
+
+                     
+
+            
+
+                
+                        <div class="actions">
+                            <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search btnNew" [disabled]="myForm.invalid"> </p-button>
+                            <p-button label="Reset" type="button" icon="pi pi-refresh" styleClass="p-button-secondary btnNew " [style]="{'margin-left': '.5em'}"  data-dismiss="modal" (click)="reset()"></p-button>
+                        </div>
+                   
+                  
+                
+                    </div>
+            
+        
+            
+            
+            
+            </div>
+
+       
+        </p-accordionTab>
+    </p-accordion>
+
+</div>
+
+</form>

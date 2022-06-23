@@ -23,8 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
       sessionStorage.removeItem('userName');
       sessionStorage.removeItem('userId');
       sessionStorage.removeItem('function');
-
-      this.router.navigate(['/'])
+      this.router.navigate(['/']);
       bootbox.alert({title: "<span style='color:#a33;font-weight: 500; font-size: 16px'>" + "Information message" + "</span>", message: "<span style='color:black;font-weight: 500; font-size: 16px'> Session Timed Out! Please Login </span>"});
       console.log("Session Timed Out")
       return throwError("Session Timed Out")
@@ -37,12 +36,9 @@ export class AuthInterceptor implements HttpInterceptor {
           "Access-Control-Allow-Origin":"*",
           "Access-Control-Allow-Headers":"*",
           'Content-Type': 'application/json'
-
-
         }
       })
 
-      
       return next.handle(authRquest)
         .pipe(
           tap(event => {}, error => {

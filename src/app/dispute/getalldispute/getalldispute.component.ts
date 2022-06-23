@@ -3,7 +3,6 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import { DisputeService } from 'src/app/services/dispute.service';
-import { DetailsdisputeComponent } from '../detailsdispute/detailsdispute.component';
 import { EditdisputeComponent } from '../editdispute/editdispute.component';
 
 @Component({
@@ -26,6 +25,7 @@ loading:boolean=true;
       { field: 'amount', header: 'Amount' , display:1 },
       { field: 'account_NO', header: 'Account NO' , display:1 },
       { field: 'dispute_REASON', header: 'Dispute Reason' , display:1 },
+      { field: 'bank_DISPUTE_DISCRIPTION', header: 'Comments' , display:0},
       { field: 'dispute_STATUS', header: 'Dispute Status', display:1 },
       { field: 'dispute_DATE', header: 'Dispute Date' , display:1  },
       { field: 'received_DATE', header: 'Received Date' , display:1  },
@@ -37,8 +37,10 @@ loading:boolean=true;
       { field: 'reference', header: 'Reference' , display:0 },
       { field: 'dispute_DESCRIPTION', header: 'Dispute Description' , display:0 },
       { field: 'dispute_ID', header: 'Dispute ID' , display:0},
-      { field: 'time_BETWEEN_DATE', header: 'TAT' , display:1},
-      // { field: 'TAT', header: 'TAT' , display:1},
+      { field: 'sla', header: 'SLA' , display:1},
+      { field: 'timeframe_STATUS', header: 'Timeframe Status' , display:0},
+      { field: 'timeframe_STARTED', header: 'Timeframe Started' , display:0},
+      { field: 'timeframe_END', header: 'Timeframe END' , display:0},
       
   ];
   this.selectedcols = this.cols.filter((col: any) =>  col.display == 1);

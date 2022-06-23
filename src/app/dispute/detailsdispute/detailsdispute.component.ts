@@ -60,6 +60,10 @@ allpar:any =[];
           if(this.DataDetails.link_STATUS == 'CMS Not Linked' && this.DataDetails.dispute_STATUS ==  'New'){
             this.showLinked = true;
           }
+          if(this.DataDetails.link_STATUS == 'CMS Linked' && this.DataDetails.dispute_STATUS ==  'New'){
+            this.showBackPending = true;
+          }
+          
           
 
           for(let x=0 ; x < this.allSections.length ; x++){
@@ -75,10 +79,7 @@ allpar:any =[];
             // }
 
           }
-         
-
-        
-
+      
           this.checkNoFound = false;
            //call tab index=0
            this.handleChange({originalEvent: PointerEvent, index: 0});
@@ -119,6 +120,38 @@ allpar:any =[];
 
 
 
+  BackPending(){
+    this.changeStatus ={
+      "dispute_ID": this.DataDetails.dispute_ID,
+      "account_NO":  this.DataDetails.account_NO,
+      "auth_ID":  this.DataDetails.auth_ID,
+      "pan":  this.DataDetails.pan,
+      "amount":  this.DataDetails.amount,
+      "bank_DISPUTE_REASON":  this.DataDetails.bank_DISPUTE_REASON,
+      "dispute_DATE":  this.DataDetails.dispute_DATE,
+      "dispute_STATUS": "Pending C/B",
+    }
+
+    console.log(this.changeStatus);
+    this.dataApi.UpdateDispute(this.changeStatus).subscribe(
+      Response=> {
+        console.log(Response)
+        if(Response.code == 1 ){
+          this.messageService.add({severity:'success', summary: 'Success', detail: Response.message});
+          this.getDetails(this.DataDetails.dispute_ID);
+          this.showBackPending = false;
+      
+        }else{
+          this.messageService.add({severity:'error', summary: 'Error', detail: Response.message});
+        }  
+      },
+      (error) => {                              
+        console.log(error);
+      }
+     );
+
+  }
+
   linkedDispute(){
     this.linkeddispute.getlinkedispute(this.DataDetails);
   }
@@ -147,6 +180,36 @@ allpar:any =[];
       this.HistoryDispute();
     }
 
+  }
+
+
+
+  closedManual() {
+    var dialog = bootbox.dialog({
+      title: 'Confirm Message',
+      message: "<p>Are you Sure Close ?</p>",
+      size: 'medium',
+      closeButton: false,
+      buttons: {
+        
+          ok: {
+              label: "<i class='fa fa-check'></i>  OK",
+              className: 'btn-success',
+              callback: () => {
+                console.log('OK clicked');
+               // this.ngOnInit();
+              }
+          },
+          cancel: {
+            label: " <i class='fa fa-times'></i> Cancel",
+            className: 'btn-danger',
+            callback: () => {
+                console.log('cancel clicked');
+            }
+        }
+        
+      }
+    });
   }
 }
 

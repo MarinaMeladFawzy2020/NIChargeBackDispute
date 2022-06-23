@@ -85,7 +85,7 @@
               
   
               <div class="form-group col-md-3">
-                <label for="dispute_REASON">Dispute Reason  <span class="text-danger">*</span></label>
+                <label for="dispute_REASON">Comments  <span class="text-danger">*</span></label>
                 <p-inputNumber [useGrouping]="false" id="dispute_REASON" name="dispute_REASON"  formControlName="dispute_REASON" [(ngModel)]="dataDetails.dispute_REASON" placeholder="" [min]="0" [(ngModel)]="dispute_REASON"
                 [ngClass]="{'border-danger': myForm.get('dispute_REASON')?.invalid && myForm.get('dispute_REASON')?.errors &&
                 (myForm.get('dispute_REASON')?.dirty || myForm.get('dispute_REASON')?.touched)}  " > </p-inputNumber>
@@ -116,7 +116,7 @@
               </div>
   
               <div class="form-group ">
-              <label for="dispute_DESCRIPTION">Dispute Description</label>
+              <label for="dispute_DESCRIPTION">Bank Dispute Description</label>
               <textarea  class="form-control textarea" formControlName="dispute_DESCRIPTION" [rows]="3" [cols]="1000"  [(ngModel)]="dataDetails.dispute_DESCRIPTION"
               pInputTextarea [autoResize]="autoResize"></textarea>
             </div>

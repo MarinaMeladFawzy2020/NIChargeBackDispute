@@ -70,10 +70,10 @@
     <ng-template pTemplate="body" let-rowData let-columns="columns">
    
       <!-- <tr [ngClass]="{
-        'background-green' : rowData.time_BETWEEN_DATE == 0 || rowData.time_BETWEEN_DATE <= 3  ,
-        'background-yellow' :  rowData.time_BETWEEN_DATE > 3 && rowData.time_BETWEEN_DATE <= 6 ,
-        'background-red' :  rowData.time_BETWEEN_DATE > 6 }"> -->
-        <tr>
+        'background-green' : rowData.sla == 0 || rowData.sla <= 3  ,
+        'background-yellow' :  rowData.sla > 3 && rowData.sla <= 6 ,
+        'background-red' :  rowData.sla > 6 }"> -->
+        <tr >
         <td>
           <span style="display: flex;">
           <button type="button" title="View Details"
@@ -91,12 +91,15 @@
         </td>
 
         <td *ngFor="let col of columns" >
-          <!-- {{rowData[col.field]}} -->
-          <span *ngIf="col.field !== 'time_BETWEEN_DATE'" >{{rowData[col.field]}} </span>
-          <span *ngIf="col.field == 'time_BETWEEN_DATE'"  [ngClass]="{
-            'background-green' : rowData.time_BETWEEN_DATE == 0 || rowData.time_BETWEEN_DATE <= 3  ,
-            'background-yellow' :  rowData.time_BETWEEN_DATE > 3 && rowData.time_BETWEEN_DATE <= 6 ,
-            'background-red' :  rowData.time_BETWEEN_DATE > 6 }"> {{rowData[col.field]}} </span>
+          <!-- {{rowData[col.field]}}   -->
+          <!--<span>{{rowData[col.field]}} </span> -->
+          <span *ngIf="rowData[col.field] !== 'null'">{{rowData[col.field]}} </span>
+          <span *ngIf="rowData[col.field] == 'null'"> </span>
+          <span class="circle" *ngIf="col.field == 'sla'"  [ngClass]="{
+            'background-green' : (rowData.sla == 0 || rowData.sla <= 2) && rowData.sla !== null  ,
+            'background-red' :  rowData.sla > 2 }" >
+          </span>
+          <!-- <span *ngIf="col.field == 'sla'" > {{rowData[col.field]}} </span> -->
        </td>
 
     
