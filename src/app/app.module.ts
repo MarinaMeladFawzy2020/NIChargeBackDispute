@@ -9,12 +9,13 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { SharedModule } from './shared/shared.module';
 import { MessageService } from 'primeng/api';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
-
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
+   
+   
   ],
   imports: [
     BrowserModule,
@@ -22,6 +23,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     BrowserAnimationsModule,
     HttpClientModule, 
     SharedModule
+
     
   ],
   providers: [

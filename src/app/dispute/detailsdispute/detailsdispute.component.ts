@@ -121,19 +121,21 @@ allpar:any =[];
 
 
   BackPending(){
-    this.changeStatus ={
-      "dispute_ID": this.DataDetails.dispute_ID,
-      "account_NO":  this.DataDetails.account_NO,
-      "auth_ID":  this.DataDetails.auth_ID,
-      "pan":  this.DataDetails.pan,
-      "amount":  this.DataDetails.amount,
-      "bank_DISPUTE_REASON":  this.DataDetails.bank_DISPUTE_REASON,
-      "dispute_DATE":  this.DataDetails.dispute_DATE,
-      "dispute_STATUS": "Pending C/B",
-    }
+    // this.changeStatus ={
+    //   "dispute_ID": this.DataDetails.dispute_ID,
+    //   "account_NO":  this.DataDetails.account_NO,
+    //   "auth_ID":  this.DataDetails.auth_ID,
+    //   "pan":  this.DataDetails.pan,
+    //   "amount":  this.DataDetails.amocheckNoFoundunt,
+    //   "bank_DISPUTE_REASON":  this.DataDetails.bank_DISPUTE_REASON,
+    //   "dispute_DATE":  this.DataDetails.dispute_DATE,
+    //   "dispute_STATUS": "Pending C/B",
+    // }
 
     console.log(this.changeStatus);
-    this.dataApi.UpdateDispute(this.changeStatus).subscribe(
+  //  this.dataApi.UpdateDispute(this.changeStatus).subscribe(
+      this.dataApi.updateDisputeStatus(this.DataDetails.dispute_ID,"Pending C/B").subscribe(
+
       Response=> {
         console.log(Response)
         if(Response.code == 1 ){
@@ -159,6 +161,7 @@ allpar:any =[];
   HistoryDispute(){
     this.historydispute.getHistorydispute(this.disputeId);
   }
+  
 
   onClickEdit(){
     this.editdispute.getRowDispute(this.DataDetails);
@@ -196,6 +199,16 @@ allpar:any =[];
               label: "<i class='fa fa-check'></i>  OK",
               className: 'btn-success',
               callback: () => {
+                console.log("closeDispute"+this.getDetails(this.disputeId))
+
+                this.dataApi.closeDispute(2294).subscribe(
+                  Response=> {
+                    console.log("closeDispute"+Response)
+                    // this.titles = Response
+                    // if(this.titles.length > 0){
+                    //   this.getDetails(this.disputeId);
+                    // }
+                  });
                 console.log('OK clicked');
                // this.ngOnInit();
               }

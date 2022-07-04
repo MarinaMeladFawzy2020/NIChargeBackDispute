@@ -1,15 +1,17 @@
+
 <!-- <p>ticketlogs works!</p>
 {{AllTicketLog | json}} -->
-<app-search (getResponse)="getDoneSearch($event)" ></app-search>
-
+<app-search-pre-arp (getResponse)="getDoneSearch($event)" ></app-search-pre-arp>
 <div style="margin: 5px">
     <p-table
-    #dt1 id="dt1" [value]="AllTicketLog"  [columns]="selectedColumns" [rows]="totalRow" [showCurrentPageReport]="true" sortMode="multiple"
+    #dt id="dt" [value]="AllPre"  [columns]="selectedColumns" [rows]="totalRow" [showCurrentPageReport]="true" sortMode="multiple"
     [scrollable]="false" scrollHeight="400px" styleClass="p-datatable-sm" [rowsPerPageOptions]="[5, 10, 25, 50 ,100 , 500]"
     styleClass="p-datatable-sm p-datatable-gridlines"
     [loading]="loading" selectionMode="single" [(selection)]="selectedProcess" [paginator]="true"  
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [globalFilterFields]="['status' , 'dateTime' ,'assingee', 'issueKey']"
+    currentPagenReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['userName' , 'amount' ,'caseStatus', 'rolCase'
+    ,'arnRetreivalRef','daysToACt','dc','fraudCls','jr','lastAction','memberCaseNumber','merchantName',
+    'motoInd','networkId']"
     [metaKeySelection]="true" responsiveLayout="scroll" selectionMode="multiple" dataKey="account_NO"
     >
     <ng-template pTemplate="caption">
@@ -26,7 +28,7 @@
     
         <span class="p-input-icon-left searchtable">
           <i class="pi pi-search"></i>
-          <input pInputText type="text"  [ngModelOptions]="{standalone: true}" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
+          <input pInputText type="text"  [ngModelOptions]="{standalone: true}" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
         </span>
     
       </div>
@@ -44,8 +46,7 @@
     
       <tr>
         <th *ngFor="let col of columns">
-          <p-columnFilter type="text"  field={{col.field}} ></p-columnFilter>
-           <!-- type="numeric"-->
+          <p-columnFilter type="text"  field={{col.field}} ></p-columnFilter> <!-- type="numeric"-->
        </th>
       </tr>
       

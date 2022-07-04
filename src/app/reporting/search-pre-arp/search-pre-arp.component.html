@@ -1,0 +1,74 @@
+<p-toast position="top-left"></p-toast>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div class="p-1">
+    <p-accordion>
+        <p-accordionTab header="Search" [transitionOptions]="'100ms'"  [selected]="true">
+            <div class="formControID">
+                    <div class="row  search">
+
+                        <div class="col-2">
+                            <label for="rolCase">Role Case </label>
+                            <input type="text" formControlName="rolCase"  class="form-control" id="rolCase"  [(ngModel)]="rolCase"
+                            [ngClass]="{'border-danger': myForm.get('rolCase')?.invalid && myForm.get('rolCase')?.errors &&
+                            (myForm.get('rolCase')?.dirty || myForm.get('rolCase')?.touched)}  " >
+                            <div *ngIf="myForm.get('rolCase')?.invalid && myForm.get('rolCase')?.errors && (myForm.get('rolCase')?.dirty || myForm.get('rolCase')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['rolCase']?.errors?.['required']"> Role Case is required.</div>
+                             </div>
+                        </div>
+
+                        <div class="col-2">
+                            <label for="caseStatus">Case Status </label>
+                            <input type="text" formControlName="caseStatus"  class="form-control" id="caseStatus"  [(ngModel)]="caseStatus"
+                            [ngClass]="{'border-danger': myForm.get('caseStatus')?.invalid && myForm.get('caseStatus')?.errors &&
+                            (myForm.get('caseStatus')?.dirty || myForm.get('caseStatus')?.touched)}  " >
+                            <div *ngIf="myForm.get('caseStatus')?.invalid && myForm.get('caseStatus')?.errors && (myForm.get('caseStatus')?.dirty || myForm.get('caseStatus')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['caseStatus']?.errors?.['required']"> Case Status is required.</div>
+                             </div>
+                        </div>
+
+
+
+                        <div class="col-2">
+                            <label for="amount">Amount </label>
+                            <input type="text" formControlName="amount"  class="form-control" id="amount"  [(ngModel)]="amount"
+                            [ngClass]="{'border-danger': myForm.get('amount')?.invalid && myForm.get('amount')?.errors &&
+                            (myForm.get('amount')?.dirty || myForm.get('amount')?.touched)}  " >
+                            <div *ngIf="myForm.get('amount')?.invalid && myForm.get('amount')?.errors && (myForm.get('amount')?.dirty || myForm.get('amount')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['amount']?.errors?.['required']"> Amount is required.</div>
+                             </div>
+                        </div>
+
+                        <div class="col-2">
+                            <label for="userName">User Name </label>
+                            <input type="text" formControlName="userName"  class="form-control" id="userName"  [(ngModel)]="userName"
+                            [ngClass]="{'border-danger': myForm.get('userName')?.invalid && myForm.get('userName')?.errors &&
+                            (myForm.get('userName')?.dirty || myForm.get('userName')?.touched)}  " >
+                            <div *ngIf="myForm.get('userName')?.invalid && myForm.get('userName')?.errors && (myForm.get('userName')?.dirty || myForm.get('userName')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['userName']?.errors?.['required']"> User Name is required.</div>
+                             </div>
+                        </div>
+                        <div class="col-2"></div>
+                
+                        <div class="actions">
+                            <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search btnNew" [disabled]="myForm.invalid"> </p-button>
+                            <p-button label="Reset" type="button" icon="pi pi-refresh" styleClass="p-button-secondary btnNew " [style]="{'margin-left': '.5em'}"  data-dismiss="modal" (click)="reset()"></p-button>
+                        </div>
+                   
+                  
+                
+                    </div>
+            
+        
+            
+            
+            
+            </div>
+
+       
+        </p-accordionTab>
+    </p-accordion>
+
+</div>
+
+</form>

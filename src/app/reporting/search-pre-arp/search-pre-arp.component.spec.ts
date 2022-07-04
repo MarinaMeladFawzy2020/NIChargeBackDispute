@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreatedisputeComponent } from './createdispute.component';
+import { SearchPreArpComponent } from './search-pre-arp.component';
 
-describe('CreatedisputeComponent', () => {
-  let component: CreatedisputeComponent;
-  let fixture: ComponentFixture<CreatedisputeComponent>;
-ng 
+describe('SearchPreArpComponent', () => {
+  let component: SearchPreArpComponent;
+  let fixture: ComponentFixture<SearchPreArpComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreatedisputeComponent ]
+      declarations: [ SearchPreArpComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreatedisputeComponent);
+    fixture = TestBed.createComponent(SearchPreArpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

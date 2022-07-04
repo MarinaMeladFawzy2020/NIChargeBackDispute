@@ -13,6 +13,7 @@ export class TicketlogsComponent implements OnInit {
 first:any = 0;
 last:any = 0;
 totalRecords:any = 0;
+
 totalRow:any = 50;
   constructor(private dataApi: ReportingService) { }
 
@@ -81,7 +82,7 @@ getDoneSearch($event: any) {
 exportExcel() {
   //npm install xlsx
   import('xlsx').then((xlsx): void => {
-  // console.log( document.getElementById('dt1'));
+  console.log("dt1 log"+ document.getElementById('dt1'));
   this.dataID = document.getElementById('dt1');
   const worksheet = xlsx.utils.table_to_sheet(this.dataID);
   //  const worksheet = xlsx.utils.json_to_sheet(this.AllSysAudit);

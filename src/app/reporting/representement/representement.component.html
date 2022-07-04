@@ -1,15 +1,15 @@
-<!-- <p>ticketlogs works!</p>
-{{AllTicketLog | json}} -->
-<app-search (getResponse)="getDoneSearch($event)" ></app-search>
+
+ <app-charge-back-search (getResponse)="getDoneSearch($event)"></app-charge-back-search> 
 
 <div style="margin: 5px">
     <p-table
-    #dt1 id="dt1" [value]="AllTicketLog"  [columns]="selectedColumns" [rows]="totalRow" [showCurrentPageReport]="true" sortMode="multiple"
+    #dt4 id="dt4" [value]="AllRep"  [columns]="selectedColumns" [rows]="totalRow" [showCurrentPageReport]="true" sortMode="multiple"
     [scrollable]="false" scrollHeight="400px" styleClass="p-datatable-sm" [rowsPerPageOptions]="[5, 10, 25, 50 ,100 , 500]"
     styleClass="p-datatable-sm p-datatable-gridlines"
     [loading]="loading" selectionMode="single" [(selection)]="selectedProcess" [paginator]="true"  
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [globalFilterFields]="['status' , 'dateTime' ,'assingee', 'issueKey']"
+    [globalFilterFields]="['pan' , 'arn' ,'auth_ID', 'bank','representation_DATE',
+    'amount','vrolcaseno','dispute_ID','curr_CODE','dispute_CONDITION','dispute_REASON']"
     [metaKeySelection]="true" responsiveLayout="scroll" selectionMode="multiple" dataKey="account_NO"
     >
     <ng-template pTemplate="caption">
@@ -26,7 +26,7 @@
     
         <span class="p-input-icon-left searchtable">
           <i class="pi pi-search"></i>
-          <input pInputText type="text"  [ngModelOptions]="{standalone: true}" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
+          <input pInputText type="text"  [ngModelOptions]="{standalone: true}" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt4.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
         </span>
     
       </div>

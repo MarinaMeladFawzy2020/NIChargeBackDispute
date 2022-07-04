@@ -9,13 +9,29 @@
             </ng-template>
         </p-tabPanel>
 
-        <p-tabPanel  header="Audit">
+        <p-tabPanel  header="Pre Arb">
             <ng-template pTemplate="content">
-                
+           <app-pre-arb></app-pre-arb>
             </ng-template>
         </p-tabPanel>
     
-     
+        <p-tabPanel  header="Credit Details">
+            <ng-template pTemplate="content">
+           <app-credit-details></app-credit-details>
+            </ng-template>
+        </p-tabPanel>
+    
+        <p-tabPanel  header="Incoming ChargeBack">
+            <ng-template pTemplate="content">
+           <app-incoming-cb></app-incoming-cb>
+            </ng-template>
+        </p-tabPanel>
+        
+        <p-tabPanel  header="Representement">
+            <ng-template pTemplate="content">
+           <app-representement></app-representement>
+            </ng-template>
+        </p-tabPanel>
     </p-tabView>
 
 

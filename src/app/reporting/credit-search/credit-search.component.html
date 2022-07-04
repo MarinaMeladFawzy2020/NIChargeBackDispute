@@ -1,0 +1,235 @@
+<p-toast position="top-left"></p-toast>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div class="p-1">
+    <p-accordion>
+        <p-accordionTab header="Search" [transitionOptions]="'100ms'"  [selected]="true">
+            <div class="formControID">
+                        <div class="row  search">
+
+                            <div class="col-2">
+                                <div  *ngIf="myForm.get('toEntryDate')?.value == ''  || myForm.get('toEntryDate')?.value == null">
+                                <label for="fromEntryDate">From Entry Date</label>       
+                                <div>
+                                  <p-calendar formControlName="fromEntryDate"    dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                                  id="fromEntryDate" inputId="fromEntryDate"  name="fromEntryDate"  [(ngModel)]="fromEntryDate"  
+                                  [ngClass]="{'border-danger': myForm.get('fromEntryDate')?.invalid && myForm.get('fromEntryDate')?.errors &&
+                                  (myForm.get('fromEntryDate')?.dirty || myForm.get('fromEntryDate')?.touched)} "></p-calendar>
+                                  <div *ngIf="myForm.get('fromEntryDate')?.invalid && myForm.get('fromEntryDate')?.errors && (myForm.get('fromEntryDate')?.dirty || myForm.get('fromEntryDate')?.touched)">
+                                      <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromEntryDate']?.errors?.['required']"> fromEntryDate is required.</div>
+                                   </div>
+                                </div>
+                                </div>
+    
+                                <div *ngIf="myForm.get('toEntryDate')?.value !== '' &&  myForm.get('toEntryDate')?.value !== null">
+                                    <label for="fromEntryDate">From Entry Date <span class="text-danger">*</span></label>         
+                                    <div>
+                                      <p-calendar formControlName="fromEntryDate"  dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                                      id="fromEntryDate" inputId="fromEntryDate"  name="fromEntryDate"  [(ngModel)]="fromEntryDate"   [required]="true"
+                                      [ngClass]="{'border-danger': myForm.get('fromEntryDate')?.invalid && myForm.get('fromEntryDate')?.errors &&
+                                      (myForm.get('fromEntryDate')?.dirty || myForm.get('fromEntryDate')?.touched)} "></p-calendar>
+                                      <div *ngIf="myForm.get('fromEntryDate')?.invalid && myForm.get('fromEntryDate')?.errors && (myForm.get('fromEntryDate')?.dirty || myForm.get('fromEntryDate')?.touched)">
+                                          <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromEntryDate']?.errors?.['required']"> fromEntryDate is required.</div>
+                                       </div>
+                                    </div>
+                                    </div>
+    
+                         
+                            </div>
+    
+                            <div class="col-2">
+                                <div *ngIf="myForm.get('fromEntryDate')?.value == '' || myForm.get('fromEntryDate')?.value == null">
+                                <label for="toEntryDate">To Entry Date</label>
+                                  <p-calendar formControlName="toEntryDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                                  id="toEntryDate" inputId="toEntryDate"  name="toEntryDate"  [(ngModel)]="toEntryDate" [required]="false"
+                                  [ngClass]="{'border-danger': myForm.get('toEntryDate')?.invalid && myForm.get('toEntryDate')?.errors &&
+                                  (myForm.get('toEntryDate')?.dirty || myForm.get('toEntryDate')?.touched)} "></p-calendar>
+                                  <div *ngIf="myForm.get('toEntryDate')?.invalid && myForm.get('toEntryDate')?.errors && (myForm.get('toEntryDate')?.dirty || myForm.get('toEntryDate')?.touched)">
+                                      <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toEntryDate']?.errors?.['required']"> toEntryDate is required.</div>
+                                   </div>
+                                </div>
+    
+                                <div *ngIf="myForm.get('fromEntryDate')?.value !== '' && myForm.get('fromEntryDate')?.value !== null">
+                                    <label for="toEntryDate">To Entry Date <span class="text-danger">*</span></label>
+                                    <p-calendar formControlName="toEntryDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                                    id="toEntryDate" inputId="toEntryDate"  name="toEntryDate"  [(ngModel)]="toEntryDate"  [required]="true"
+                                    [ngClass]="{'border-danger': myForm.get('toEntryDate')?.invalid && myForm.get('toEntryDate')?.errors &&
+                                    (myForm.get('toEntryDate')?.dirty || myForm.get('toEntryDate')?.touched)} "></p-calendar>
+                                    
+                                    <div *ngIf="myForm.get('toEntryDate')?.invalid && myForm.get('toEntryDate')?.errors && (myForm.get('toEntryDate')?.dirty || myForm.get('toEntryDate')?.touched)">
+                                        <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toEntryDate']?.errors?.['required']"> toEntryDate is required.</div>
+                                     </div>
+    
+                                </div>
+    
+                            </div>
+                        <div class="col-2"> 
+                            <label for="entryCode">Entry Code </label>
+                            <input type="text" formControlName="entryCode"  class="form-control" id="entryCode"  [(ngModel)]="entryCode"
+                            [ngClass]="{'border-danger': myForm.get('entryCode')?.invalid && myForm.get('entryCode')?.errors &&
+                            (myForm.get('entryCode')?.dirty || myForm.get('entryCode')?.touched)}  " >
+                            <div *ngIf="myForm.get('entryCode')?.invalid && myForm.get('entryCode')?.errors && (myForm.get('entryCode')?.dirty || myForm.get('entryCode')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['entryCode']?.errors?.['required']"> entryCode is required.</div>
+                             </div>
+                        </div>
+
+                        <div class="col-2">
+                            <label for="dbCard">DB Card </label>
+                            <input type="text" formControlName="dbCard"  class="form-control" id="dbCard"  [(ngModel)]="dbCard"
+                            [ngClass]="{'border-danger': myForm.get('dbCard')?.invalid && myForm.get('dbCard')?.errors &&
+                            (myForm.get('dbCard')?.dirty || myForm.get('dbCard')?.touched)}  " >
+                            <div *ngIf="myForm.get('dbCard')?.invalid && myForm.get('dbCard')?.errors && (myForm.get('dbCard')?.dirty || myForm.get('dbCard')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['dbCard']?.errors?.['required']"> dbCard is required.</div>
+                             </div>
+                        </div>
+
+
+
+                        <div class="col-2">
+                            <label for="userId">User </label>
+                            <input type="text" formControlName="userId"  class="form-control" id="userId"  [(ngModel)]="userId"
+                            [ngClass]="{'border-danger': myForm.get('userId')?.invalid && myForm.get('userId')?.errors &&
+                            (myForm.get('userId')?.dirty || myForm.get('userId')?.touched)}  " >
+                            <div *ngIf="myForm.get('userId')?.invalid && myForm.get('userId')?.errors && (myForm.get('userId')?.dirty || myForm.get('userId')?.touched)">
+                                <div class="form-text text-danger mt-1" *ngIf="myForm.controls['userId']?.errors?.['required']"> userId is required.</div>
+                             </div>
+                        </div>
+
+                     
+                        <!-- <div class="col-2">
+                            <div  *ngIf="myForm.get('toTrxDate')?.value == ''  || myForm.get('toTrxDate')?.value == null">
+                            <label for="fromTrxDate">From TRX Date</label>       
+                            <div>
+                              <p-calendar formControlName="fromTrxDate"    dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                              id="fromTrxDate" inputId="fromTrxDate"  name="fromTrxDate"  [(ngModel)]="fromTrxDate"  
+                              [ngClass]="{'border-danger': myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors &&
+                              (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)} "></p-calendar>
+                              <div *ngIf="myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors && (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)">
+                                  <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromTrxDate']?.errors?.['required']"> fromTrxDate is required.</div>
+                               </div>
+                            </div>
+                            </div> -->
+
+                            <!-- <div *ngIf="myForm.get('toTrxDate')?.value !== '' &&  myForm.get('toTrxDate')?.value !== null">
+                                <label for="fromTrxDate">From Date <span class="text-danger">*</span></label>         
+                                <div>
+                                  <p-calendar formControlName="fromTrxDate"  dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                                  id="fromTrxDate" inputId="fromTrxDate"  name="fromTrxDate"  [(ngModel)]="fromTrxDate"   [required]="true"
+                                  [ngClass]="{'border-danger': myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors &&
+                                  (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)} "></p-calendar>
+                                  <div *ngIf="myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors && (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)">
+                                      <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromTrxDate']?.errors?.['required']"> fromTrxDate is required.</div>
+                                   </div>
+                                </div>
+                                </div> -->
+
+                     
+                        <!-- </div>
+
+                        <div class="col-2">
+                            <div *ngIf="myForm.get('fromTrxDate')?.value == '' || myForm.get('fromTrxDate')?.value == null">
+                            <label for="toTrxDate">To TRX Date</label>
+                              <p-calendar formControlName="toTrxDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                              id="toTrxDate" inputId="toTrxDate"  name="toTrxDate"  [(ngModel)]="toTrxDate" [required]="false"
+                              [ngClass]="{'border-danger': myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors &&
+                              (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)} "></p-calendar>
+                              <div *ngIf="myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors && (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)">
+                                  <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toTrxDate']?.errors?.['required']"> toTrxDate is required.</div>
+                               </div>
+                            </div> -->
+
+                            <!-- <div *ngIf="myForm.get('fromTrxDate')?.value !== '' && myForm.get('fromTrxDate')?.value !== null">
+                                <label for="toTrxDate">To Date <span class="text-danger">*</span></label>
+                                <p-calendar formControlName="toTrxDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                                id="toTrxDate" inputId="toTrxDate"  name="toTrxDate"  [(ngModel)]="toTrxDate"  [required]="true"
+                                [ngClass]="{'border-danger': myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors &&
+                                (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)} "></p-calendar>
+                                
+                                <div *ngIf="myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors && (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)">
+                                    <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toTrxDate']?.errors?.['required']"> toTrxDate is required.</div>
+                                 </div>
+
+                            </div> -->
+
+                       
+                            <div class="col-2">
+                            <div  *ngIf="myForm.get('toTrxDate')?.value == ''  || myForm.get('toTrxDate')?.value == null">
+                            <label for="fromTrxDate">From TRX Date</label>       
+                            <div>
+                              <p-calendar formControlName="fromTrxDate"    dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                              id="fromTrxDate" inputId="fromTrxDate"  name="fromTrxDate"  [(ngModel)]="fromTrxDate"  
+                              [ngClass]="{'border-danger': myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors &&
+                              (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)} "></p-calendar>
+                              <div *ngIf="myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors && (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)">
+                                  <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromTrxDate']?.errors?.['required']"> fromTrxDate is required.</div>
+                               </div>
+                            </div>
+                            </div>
+
+                            <div *ngIf="myForm.get('toTrxDate')?.value !== '' &&  myForm.get('toTrxDate')?.value !== null">
+                                <label for="fromTrxDate">From TRX Date <span class="text-danger">*</span></label>         
+                                <div>
+                                  <p-calendar formControlName="fromTrxDate"  dateFormat="mm/dd/yy" [showButtonBar]="true" [showIcon]="true" 
+                                  id="fromTrxDate" inputId="fromTrxDate"  name="fromTrxDate"  [(ngModel)]="fromTrxDate"   [required]="true"
+                                  [ngClass]="{'border-danger': myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors &&
+                                  (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)} "></p-calendar>
+                                  <div *ngIf="myForm.get('fromTrxDate')?.invalid && myForm.get('fromTrxDate')?.errors && (myForm.get('fromTrxDate')?.dirty || myForm.get('fromTrxDate')?.touched)">
+                                      <div class="form-text text-danger mt-1" *ngIf="myForm.controls['fromTrxDate']?.errors?.['required']"> fromTrxDate is required.</div>
+                                   </div>
+                                </div>
+                                </div>
+
+                     
+                        </div>
+
+                        <div class="col-2">
+                            <div *ngIf="myForm.get('fromTrxDate')?.value == '' || myForm.get('fromTrxDate')?.value == null">
+                            <label for="toTrxDate">To TRX Date</label>
+                              <p-calendar formControlName="toTrxDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                              id="toTrxDate" inputId="toTrxDate"  name="toTrxDate"  [(ngModel)]="toTrxDate" [required]="false"
+                              [ngClass]="{'border-danger': myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors &&
+                              (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)} "></p-calendar>
+                              <div *ngIf="myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors && (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)">
+                                  <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toTrxDate']?.errors?.['required']"> toTrxDate is required.</div>
+                               </div>
+                            </div>
+
+                            <div *ngIf="myForm.get('fromTrxDate')?.value !== '' && myForm.get('fromTrxDate')?.value !== null">
+                                <label for="toTrxDate">To TRX Date <span class="text-danger">*</span></label>
+                                <p-calendar formControlName="toTrxDate"  dateFormat="dd/mm/yy" [showButtonBar]="true" [showIcon]="true" 
+                                id="toTrxDate" inputId="toTrxDate"  name="toTrxDate"  [(ngModel)]="toTrxDate"  [required]="true"
+                                [ngClass]="{'border-danger': myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors &&
+                                (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)} "></p-calendar>
+                                
+                                <div *ngIf="myForm.get('toTrxDate')?.invalid && myForm.get('toTrxDate')?.errors && (myForm.get('toTrxDate')?.dirty || myForm.get('toTrxDate')?.touched)">
+                                    <div class="form-text text-danger mt-1" *ngIf="myForm.controls['toTrxDate']?.errors?.['required']"> toTrxDate is required.</div>
+                                 </div>
+
+                            </div>
+
+                        </div>
+
+
+                
+                        <div class="actions">
+                            <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search btnNew" [disabled]="myForm.invalid"> </p-button>
+                            <p-button label="Reset" type="button" icon="pi pi-refresh" styleClass="p-button-secondary btnNew " [style]="{'margin-left': '.5em'}"  data-dismiss="modal" (click)="reset()"></p-button>
+                        </div>
+                   
+                  
+                
+                    </div>
+            
+        
+            
+            
+            
+            </div>
+
+       
+        </p-accordionTab>
+    </p-accordion>
+
+</div>
+
+</form>

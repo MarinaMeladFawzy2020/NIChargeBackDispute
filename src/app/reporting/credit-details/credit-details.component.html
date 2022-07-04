@@ -1,17 +1,18 @@
+
 <!-- <p>ticketlogs works!</p>
 {{AllTicketLog | json}} -->
-<app-search (getResponse)="getDoneSearch($event)" ></app-search>
-
+<!-- <app-credit-search (getResponse)="getDoneSearch($event)" ></app-credit-search> -->
+<app-credit-search (getResponse)="getDoneSearch($event)"></app-credit-search>
 <div style="margin: 5px">
     <p-table
-    #dt1 id="dt1" [value]="AllTicketLog"  [columns]="selectedColumns" [rows]="totalRow" [showCurrentPageReport]="true" sortMode="multiple"
+    #dt2 id="dt2" [value]="AllCredits"  [columns]="selectedColumns" [rows]="totalRow" [showCurrentPageReport]="true" sortMode="multiple"
     [scrollable]="false" scrollHeight="400px" styleClass="p-datatable-sm" [rowsPerPageOptions]="[5, 10, 25, 50 ,100 , 500]"
     styleClass="p-datatable-sm p-datatable-gridlines"
     [loading]="loading" selectionMode="single" [(selection)]="selectedProcess" [paginator]="true"  
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [globalFilterFields]="['status' , 'dateTime' ,'assingee', 'issueKey']"
-    [metaKeySelection]="true" responsiveLayout="scroll" selectionMode="multiple" dataKey="account_NO"
-    >
+    currentPagenReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['dbCard','entryCode','trxnDate'  ,'entryDate', 'userId'
+    ,'docNum','amount','dbAcc','dbClient','accCur','crAcc','crClient','crCard','crCur','entryCode','operation','comments']"
+    [metaKeySelection]="true" responsiveLayout="scroll" selectionMode="multiple" dataKey="account_NO">
     <ng-template pTemplate="caption">
       <div class="flex"  style="float: right; margin-top: -5px; margin-left: 8px">
         <button type="button" class="btn btn-success btnNew" (click)="exportExcel()" title="Export Excel">
@@ -26,7 +27,7 @@
     
         <span class="p-input-icon-left searchtable">
           <i class="pi pi-search"></i>
-          <input pInputText type="text"  [ngModelOptions]="{standalone: true}" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
+          <input pInputText type="text"  [ngModelOptions]="{standalone: true}" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt2.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword"/>
         </span>
     
       </div>

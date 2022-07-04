@@ -46,6 +46,10 @@ export class DisputeService {
     return this.http.get(this.URL+`/getDispute?disputeId=${disputeId}`);
   }
 
+  updateDisputeStatus(disputeId :any,disputeStatus:any): Observable<any> {
+    console .log(this.URL+`/updateStatus?disputeId=${disputeId}&disputeStatus=${disputeStatus}`);
+    return this.http.get(this.URL+`/updateStatus?disputeId=${disputeId}&disputeStatus=${disputeStatus}`);
+  }
   getAllAttributeLabels(): Observable<any> {
     return this.http.get(this.URL+`/AllAttributeLabels`);
   }
@@ -77,7 +81,9 @@ export class DisputeService {
     return this.http.get(this.URL+`/GetIssue?issueKey=${issueKey}`);
   }
 
-
+  closeDispute(disputeId :any): Observable<any> {
+    return this.http.get(this.URL+`/closeDispute?disputeId=${disputeId}`);
+  }
 
 
  

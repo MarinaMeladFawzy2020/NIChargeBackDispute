@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreatedisputeComponent } from './createdispute.component';
+import { ChargeBackSearchComponent } from './charge-back-search.component';
 
-describe('CreatedisputeComponent', () => {
-  let component: CreatedisputeComponent;
-  let fixture: ComponentFixture<CreatedisputeComponent>;
-ng 
+describe('ChargeBackSearchComponent', () => {
+  let component: ChargeBackSearchComponent;
+  let fixture: ComponentFixture<ChargeBackSearchComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreatedisputeComponent ]
+      declarations: [ ChargeBackSearchComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreatedisputeComponent);
+    fixture = TestBed.createComponent(ChargeBackSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

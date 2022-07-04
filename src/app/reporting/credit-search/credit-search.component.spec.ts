@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreatedisputeComponent } from './createdispute.component';
+import { CreditSearchComponent } from './credit-search.component';
 
-describe('CreatedisputeComponent', () => {
-  let component: CreatedisputeComponent;
-  let fixture: ComponentFixture<CreatedisputeComponent>;
-ng 
+describe('CreditSearchComponent', () => {
+  let component: CreditSearchComponent;
+  let fixture: ComponentFixture<CreditSearchComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreatedisputeComponent ]
+      declarations: [ CreditSearchComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreatedisputeComponent);
+    fixture = TestBed.createComponent(CreditSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
